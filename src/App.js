@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Components/Header'
 import './App.css';
+
 
 class App extends Component {
   constructor(props){
@@ -35,6 +37,8 @@ class App extends Component {
   }
 
   render() {
+
+    // needed for Total.js:
     const summary = Object.keys(this.state.selected)
           .map(key => <div className="summary__option" key={key}>
             <div className="summary__option__label">{key}  </div>
@@ -45,10 +49,11 @@ class App extends Component {
             </div>
         </div>)
 
+    // needed for Total.js:
     const total = Object.keys(this.state.selected)
           .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
 
-
+    // needed for List.of.parts.js
     const features = Object.keys(this.props.features)
           .map(key => {
             const options = this.props.features[key].map((item, index) => {
@@ -65,6 +70,7 @@ class App extends Component {
               </li>
             });
 
+    // 
             return <div className="feature" key={key}>
               <div className="feature__name">{key}</div>
               <ul className="feature__list">
@@ -75,11 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing</h1>
-          <h3>Laptops</h3>
-          <h5>Customize your laptop</h5>  
-        </header>      
+           
         <main>
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
@@ -97,6 +99,8 @@ class App extends Component {
             </div>
           </section>
         </main>
+        <Header >
+        </Header>
       </div>
     );
   }
