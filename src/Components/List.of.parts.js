@@ -1,8 +1,7 @@
  import React, { Component } from 'react'
- import App from '../App'
+ import '../App.css';
 
 
- // needed for List.of.parts.js
 class ListOfParts extends Component{
 
 render() {
@@ -13,7 +12,6 @@ render() {
      const featureClass = 'feature__option ' + selectedClass;
      return <li key={index} className="feature__item">
        <div className={featureClass}
-         //add this.props
          onClick={e => this.props.updateFeature(key, item)}>
            { item.name }
            ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})

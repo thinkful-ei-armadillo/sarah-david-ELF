@@ -89,7 +89,7 @@ class App extends Component {
           
         <ListOfParts updateFeature={((feature, newValue) =>  this.updateFeature(feature, newValue))} selected={this.state.selected} features={this.state.features}/>
 
-         <Total />
+         <Total selected={this.state.selected}/>
         </main>
         
       </div>
